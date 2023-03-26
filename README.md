@@ -8,9 +8,9 @@ Deseja-se implementar um sistema de gerenciamento de estoque.
 - O funcionário poderá pesquisar os itens no estoque 
 - 
 ## Membros da Equipe e seus papéis
-- Raul Araju: Dev Full Stack
-- Marco Túlio:
-- Gabriel Lima: Dev Full Stack
-- Fernando Vilela: Dev Full Stack
+- Raul Araju: Desenvolvedor Full Stack
+- Marco Túlio de Pinho: Desenvolvedor Full Stack
+- Gabriel Lima: Desenvolvedor Full Stack
+- Fernando Vilela: Desenvolvedor Full Stack
 ## Tecnologias
 - JavaScript, Express, NodeJs, SQL, React, HTML 
