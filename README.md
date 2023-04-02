@@ -38,6 +38,5 @@ Deseja-se implementar um sistema de gerenciamento de estoque.
 - Como um usuário, eu quero alterar a quantidade de itens em estoque.
 - Como um usuário, eu quero pesquisar itens.
 
-
 ## Tecnologias
 - JavaScript, Express, NodeJs, SQL, React, HTML 
