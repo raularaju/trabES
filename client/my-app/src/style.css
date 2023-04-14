@@ -130,8 +130,8 @@ body.index #initial-view {
   position: relative;
   border-radius: 2px;
   border: 1px solid #c3c3c3;
-  width: 400px;
-  height: 500px;
+  width: 25em;
+  height: 30em;
   text-align: center;
   margin: 0 auto;
 }
