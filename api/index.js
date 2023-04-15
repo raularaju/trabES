@@ -1,3 +1,8 @@
 const app = require('./config/express-config');
 
-app.listen(3030, console.log('API listening on port 3030'));
+app.get('/', (req, res, next) => {
+    res.send('Hello world!')
+    next();
+});
+
+app.listen(process.env.PORT, console.log("API listening"));
