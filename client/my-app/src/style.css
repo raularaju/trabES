@@ -47,10 +47,6 @@ h3 {
   font-weight: 600;
   font-size: 1.8em;
 }
-header.menu-header {
-  background-color: #929dc7;
-}
-
 
 table {
   border-collapse: collapse;
@@ -99,7 +95,7 @@ div.add-product-form .form-group {
   display: table-cell;
 }
 
-button[type="submit"] {
+button[type="submit"], .dropbtn {
   border-radius: 2px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -153,22 +149,16 @@ body.index .login-header {
   color: #002f56;
 }
 
-.dropbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
+body.homepage header {
+  padding: 1em;
+  background-color: #929dc7;
 }
 
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
+body.homepage .dropdown {
   position: relative;
   display: inline-block;
 }
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
+body.homepage .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
@@ -176,26 +166,13 @@ body.index .login-header {
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
+body.homepage .dropdown-content a {
   padding: 12px 16px;
-  text-decoration: none;
   display: block;
 }
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {
+body.homepage .dropdown-content a:hover {
   background-color: #ddd;
 }
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
+body.homepage .dropdown:hover .dropdown-content {
   display: block;
 }
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
-} 
