@@ -11,4 +11,11 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 app.use(express.static('public'));
+
+const UserRouter = require('../src/domains/User/controllers/index');
+app.use('/user', UserRouter);
+
+const ProductRouter = require('../src/domains/Product/controllers/index');
+app.use('/product', ProductRouter);
+
 module.exports = app;
