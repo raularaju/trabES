@@ -23,6 +23,18 @@ const User = database.define('User', {
         unique: true
     },
 
+    cpf: {
+        type: Sequelize.STRING(14),
+        allowNull: false,
+        unique: true
+    },
+
+    telefone: {
+        type: Sequelize.STRING(20),
+        allowNull: false,
+        unique: true
+    },
+
     password: {
         type: Sequelize.STRING,
         allowNull: false
