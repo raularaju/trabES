@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../src/style.css" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <title>Visualizar produtos em estoque.</title>
+  </head>
+  <body class="homepage">
+    <header class="homepage-header">
+      <div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div>
+    </header>
+    <h2>Products</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody id="products-table-body"></tbody>
+    </table>
+
+    <h2>Add Product</h2>
+    <form class="add-product-form">
+      <div class="add-product-form">
+        <div class="form-group">
+          <label for="product-name-input">Name:</label>
+          <input type="text" id="product-name-input" required />
+        </div>
+        <div class="form-group">
+          <label for="product-quantity-input">Quantity:</label>
+          <input type="number" id="product-quantity-input" required />
+          <button type="submit">Add</button>
+        </div>
+      </div>
+    </form>
+    <script src="scripts/frontend.js"></script>
+  </body>
+</html>
