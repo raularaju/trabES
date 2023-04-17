@@ -26,7 +26,16 @@ const Product = database.define('Product', {
         type: Sequelize.INTEGER,
         allowNull: false,
         defaultValue: 0
+    },
+    expiration: {
+        type: Sequelize.DATE,
+        allowNull: true       
+    },
+    batch: {
+        type: Sequelize.STRING,
+        allowNull: false
     }
+
 });
 
 User.belongsToMany(Product, {through: 'User_Products'});
