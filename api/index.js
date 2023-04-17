@@ -1,13 +1,11 @@
 const app = require('./config/express');
 /* (async () => {
     const database = require('./database/index.js');
-    const User = require('./domains/User/models/User');
-    const Product = require('./domains/Product/models/Product');
-    await User.sync();
-    await Product.sync();
-    await database.sync();
-})();
- */
+    const User = require('./src/domains/User/models/User');
+    const Product = require('./src/domains/Product/models/Product');
+    await database.sync({force: true});
+})(); */
+
 app.get('/', (req, res, next) => {
     res.send('Hello world!')
     next();

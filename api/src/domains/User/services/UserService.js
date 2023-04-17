@@ -1,11 +1,10 @@
 const User = require('../models/User');
 
 class UserService{
-    /*
-        TO DO:
-        await create(body)
-            deve criar um usuário no BD com base nas informações passadas no body
-    */
+    /* TO DO 
+    async create(body)
+        cria usuário no BD com base no body passado */
+    
 }
 
-module.exports = UserService;
+module.exports = new UserService;
