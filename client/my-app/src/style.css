@@ -116,20 +116,35 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-body.index .login-form {
+body.index.login-form,
+body.signup .login-form {
   text-align: center;
   margin: 0 auto;
   flex-direction: column;
 }
 
-body.index #initial-view {
+body.index #initial-view,
+body.signup #initial-view {
   position: relative;
   border-radius: 2px;
   border: 1px solid #c3c3c3;
-  width: 25em;
-  height: 30em;
   text-align: center;
   margin: 0 auto;
+}
+body.index #initial-view {
+  width: 25em;
+  height: 30em;
+}
+body.signup #initial-view {
+  width: 50em;
+  height: 35em;
+}
+body.signup .first-column,
+body.signup .second-column {
+  display: inline-block;
+  border-radius: 2px;
+  border: 1px solid #c3c3c3;
+  width: 40%;
 }
 
 body.index .restore-login {
@@ -145,8 +160,13 @@ body.index .ask-acess {
   margin-left: 5%;
 }
 
-body.index .login-header {
+body.index .login-header,
+body.signup .signup-header {
   color: #002f56;
+}
+
+body.signup input {
+  width: 90%;
 }
 
 body.homepage header {
