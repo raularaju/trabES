@@ -133,14 +133,6 @@ body.signup #initial-view {
   margin: 0 auto;
 }
 
-#flex-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 100vh;
-}
-
 body.index #initial-view {
   width: 25em;
   height: 30em;
@@ -178,6 +170,14 @@ body.signup .signup-header {
 
 body.signup input {
   width: 90%;
+}
+
+body.signup #flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
 }
 
 body.homepage header {
