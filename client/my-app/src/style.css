@@ -74,6 +74,7 @@ label {
 
 input {
   padding: 0.5em;
+  font-size: 90%;
   border: 2px solid #c3c3c3;
   border-radius: 3px;
   width: 65%;
@@ -131,6 +132,15 @@ body.signup #initial-view {
   text-align: center;
   margin: 0 auto;
 }
+
+#flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
 body.index #initial-view {
   width: 25em;
   height: 30em;
@@ -151,7 +161,8 @@ body.index .restore-login {
   font-size: 90%;
   font-weight: bold;
 }
-body.index .ask-acess {
+body.index .ask-acess,
+body.signup .login {
   font-weight: 500;
   font-size: 90%;
   position: absolute;
