@@ -2,7 +2,8 @@ const PermissionError = require('../../errors/PermissionError');
 const bcrypt = require('bcrypt');
 const httpStatusCodes = require('../utils/constants/httpStatusCodes');
 const UserService = require('../domains/User/services/UserService');
-
+const jwt = require('jsonwebtoken');
+const authConfig = require('../../config/auth');
 function jwtSign(user, res){
     const userInfo = {
         id: user.id,
