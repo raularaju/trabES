@@ -1,15 +1,25 @@
+const { QueryError } = require('sequelize');
 const Product = require('../models/Product');
 
 class ProductService{
-    /*
-        TO DO:
-        await create(body)
-            deve criar um novo produto no BD com base nas informações passadas no body
-        await getAll()
-            deve retornar uma lista com todos os produtos no BD
-        await update(id, body)
-            deve alterar o produto com a id passada de acordo com as informações passadas no body
-    */
+    async create(body) {
+        Product.create(body);
+    }
+
+    async getall(){
+        const produtos = await Product.findAll();
+        return produtos
+    }
+
+    async update(id,body){
+        const produto = await Product.findByPk(id);
+        if (produto) {
+            produto.set(body);
+            await produto.save();
+        }else{
+            throw new QueryError("Produto não encontrado")
+        }
+    }
 }
 
-module.exports = ProductService;
+module.exports = new ProductService;
