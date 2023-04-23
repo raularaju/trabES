@@ -1,5 +1,5 @@
 const Router = require('express').Router();
-const {notLoggedIn, loginMiddleware} = require('../../../middlewares/auth');
+const {notLoggedIn,jwtMiddleware, loginMiddleware} = require('../../../middlewares/auth');
 const httpStatusCodes = require('../../../utils/constants/httpStatusCodes');
 const UserService = require('../services/UserService');
 
@@ -13,5 +13,14 @@ Router.post('/', async (req, res, next) => {
 });
 
 Router.post('/login', notLoggedIn, loginMiddleware);
+
+Router.post('/logout', jwtMiddleware, async (req, res, next) => {
+    try{
+        res.clearCookie('jwt');
+        res.status(httpStatusCodes.NO_CONTENT).send('Deslogado com sucesso');
+    }catch(error){
+        next(error);
+    }
+});
 
 module.exports = Router;

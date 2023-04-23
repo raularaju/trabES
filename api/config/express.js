@@ -18,4 +18,6 @@ app.use('/user', UserRouter);
 const ProductRouter = require('../src/domains/Product/controllers/index');
 app.use('/product', ProductRouter);
 
+const errorHandler = require('../src/middlewares/errorHandler');
+app.use(errorHandler);
 module.exports = app;
