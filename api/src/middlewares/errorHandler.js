@@ -2,7 +2,6 @@
 const {JsonWebTokenError} = require('jsonwebtoken');
 const NotAuthorizedError = require('../../errors/NotAuthorizedError.js');
 const InvalidParamError = require('../../errors/InvalidParamError');
-const TokenError = require('../../errors/TokenError');
 const QueryError = require('../../errors/QueryError');
 const httpStatusCodes = require('../utils/constants/httpStatusCodes');
 const { UniqueConstraintError } =  require('sequelize');
