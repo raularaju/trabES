@@ -26,15 +26,15 @@ const Product = database.define('Product', {
         type: Sequelize.INTEGER,
         allowNull: false,
         defaultValue: 0
-    }//,
-    // expiration: {
-    //     type: Sequelize.DATEONLY,
-    //     allowNull: true    
-    // },
-    // batch: {
-    //     type: Sequelize.STRING,
-    //     allowNull: false
-    // }
+    },
+    expiration: {
+        type: Sequelize.DATEONLY,
+        allowNull: true    
+    },
+    batch: {
+        type: Sequelize.STRING,
+        allowNull: false
+    }
 
 });
 
