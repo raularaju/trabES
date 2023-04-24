@@ -10,4 +10,4 @@ app.get('/', (req, res, next) => {
     next();
 });
 
-app.listen(process.env.PORT, console.log("API listening"));
+app.listen(process.env.PORT, console.log("API listening ", process.env.PORT));
