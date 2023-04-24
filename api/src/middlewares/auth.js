@@ -1,10 +1,9 @@
 const PermissionError = require('../../errors/PermissionError');
-const NotActiveError = require('../../errors/NotActiveError');
 const bcrypt = require('bcrypt');
-const httpStatusCodes = require('../../utils/constants/httpStatusCodes');
-const userRoles = require('../../utils/constants/userRoles');
+const httpStatusCodes = require('../utils/constants/httpStatusCodes');
 const UserService = require('../domains/User/services/UserService');
-
+const jwt = require('jsonwebtoken');
+const authConfig = require('../../config/auth');
 function jwtSign(user, res){
     const userInfo = {
         id: user.id,
@@ -85,9 +84,6 @@ async function loginMiddleware(req, res, next) {
             const matchingPassword = await bcrypt.compare(password, user.password);
             if (!matchingPassword) {
                 throw new PermissionError('Email ou senha inválido');
-            }
-            if (user.status !== 'active'){
-                throw new NotActiveError('Você precisa ativar sua conta');
             }
         }
         

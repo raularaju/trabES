@@ -2,7 +2,7 @@ const app = require('./config/express');
 /* (async () => {
     const database = require('./database/index.js');
     const Product = require('./src/domains/Product/models/Product');
-    await database.sync({alter: true});
+    await database.sync( {alter: true});
 })(); */
 
 app.get('/', (req, res, next) => {
@@ -10,4 +10,4 @@ app.get('/', (req, res, next) => {
     next();
 });
 
-app.listen(process.env.PORT, console.log("API listening"));
+app.listen(process.env.PORT, console.log("API listening ", process.env.PORT));
