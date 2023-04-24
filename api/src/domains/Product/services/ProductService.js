@@ -3,7 +3,7 @@ const Product = require('../models/Product');
 
 class ProductService{
     async create(body) {
-        Product.create(body);
+        await Product.create(body);
     }
 
     async getall(){

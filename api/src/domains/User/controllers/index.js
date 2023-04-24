@@ -3,7 +3,6 @@ const {notLoggedIn,jwtMiddleware, loginMiddleware} = require('../../../middlewar
 const httpStatusCodes = require('../../../utils/constants/httpStatusCodes');
 const UserService = require('../services/UserService');
 
-
 Router.post('/', async (req, res, next) => {
     try{
         await UserService.create(req.body);
