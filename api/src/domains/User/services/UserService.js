@@ -1,7 +1,7 @@
 const User = require('../models/User');
 const NotFoundError = require('../../../../errors/NotFoundError');
 const encryptPassword = require('../../../utils/functions/encryptPassword');
-const { UniqueConstraintError } =  require('sequelize');
+const { UniqueConstraintError, QueryError } =  require('sequelize');
 const DuplicateError = require('../../../../errors/DuplicateError');
 class UserService {
 
@@ -13,6 +13,8 @@ class UserService {
             if (error instanceof UniqueConstraintError){
                 throw new DuplicateError('Esse email já está cadastrado no sistema!');
             }
+            else 
+                throw new QueryError('Os parâmetros não podem ser nulos');
         }
     }
 

@@ -3,7 +3,11 @@ const Product = require('../models/Product');
 
 class ProductService{
     async create(body) {
-        await Product.create(body);
+        try {
+            await Product.create(body);
+        }catch(error){
+            throw new Error(error);
+        }
     }
 
     async getall(){

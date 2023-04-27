@@ -1,9 +1,9 @@
 const app = require('./config/express');
-// (async () => {
-//     const database = require('./database/index.js');
-//     const Product = require('./src/domains/Product/models/Product');
-//     await database.sync( );
-// })();
+(async () => {
+    const database = require('./database/index.js');
+    const Product = require('./src/domains/Product/models/Product');
+    await database.sync({alter: true} );
+})();
 
 app.get('/', (req, res, next) => {
     res.send('Hello world!')

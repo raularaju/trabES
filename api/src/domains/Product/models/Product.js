@@ -29,7 +29,7 @@ const Product = database.define('Product', {
     },
     expiration: {
         type: Sequelize.DATEONLY,
-        allowNull: true    
+        allowNull: false   
     },
     batch: {
         type: Sequelize.STRING,
