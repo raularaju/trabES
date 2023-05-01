@@ -4,24 +4,8 @@ import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import './style.css';
 import Login from './pages/Login';
-import Layout from './pages/Layout';
 import Products from './pages/Products';
 import Signup from './pages/Signup';
-
-// export default function App() {
-//   return (
-//     <BrowserRouter>
-//       <Routes>
-//         <Route path="/" element={<Layout />}>
-//           <Route path="products" element={<Products />} />
-//           <Route path="signup" element={<Signup />} />
-//         </Route>
-//       </Routes>
-//     </BrowserRouter>
-//   )
-// }
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(<App />);
 
 const router = createBrowserRouter([
   {path: '/', element: <Login/>},

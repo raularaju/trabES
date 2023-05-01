@@ -6,13 +6,13 @@ class Products extends React.Component {
     super(props);
     this.state = {
       products: [],
-      productName: '',
-      productBrand: '',
-      productExpiration: '',
-      productQuantity: ''
+      // productName: '',
+      // productBrand: '',
+      // productExpiration: '',
+      // productQuantity: ''
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -29,9 +29,9 @@ class Products extends React.Component {
       });
   }
 
-  handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
-  }
+  // handleChange(event) {
+  //   this.setState({ [event.target.name]: event.target.value });
+  // }
 
   render() {
     return (
