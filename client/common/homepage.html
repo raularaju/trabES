@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../src/style.css" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <title>Visualizar produtos em estoque.</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  </head>
+
+  <body class="homepage">
+    <div id="flex-container">
+      <div class="search-product">
+        <h3>Procurar produtos</h3>
+        <form class="search-form">
+          <div class="search-product-form">
+            <div class="search-form-group">
+              <input
+                name="search-by-name"
+                id="search-by-name"
+                placeholder="Insira o nome do produto"
+              />
+            </div>
+            <div class="search-product-button-wrapper">
+              <button type="submit">Procurar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+        <main class="table">
+          <div class="table-header">
+            <h3>Produtos</h3>
+          </div>
+          <div class="root">
+            <!-- <table>
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Marca</th>
+                  <th>Validade</th>
+                  <th>Quantidade</th>
+                  <th>id</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>a</td>
+                  <td>b</td>
+                  <td>c</td>
+                  <td>d</td>
+                  <td>e</td>
+                </tr>
+              </tbody>
+            </table> -->
+          </div>
+        </main>
+      <div class="add-product">
+        <h3>Adicionar produtos</h3>
+        <form class="add-form">
+          <div class="product-description">
+            <div class="add-product-form">
+              <div class="add-form-group">
+                <label for="product-name-input">Name</label>
+                <input type="text" id="product-name-input" required />
+              </div>
+              <div class="add-form-group">
+                <label for="product-brand-input">Marca</label>
+                <input type="text" id="product-brand-input" />
+              </div>
+              <div class="add-form-group">
+                <label for="product-expiration-date-input">Validade</label>
+                <input type="date" id="product-expiration-date-input" />
+              </div>
+              <div class="add-form-group">
+                <label for="product-quantity-input">Quantity</label>
+                <input type="number" id="product-quantity-input" required />
+              </div>
+            </div>
+            <div class="add-product-button-wrapper">
+              <button type="submit">Adicionar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="../src/homepage.js"></script>
+  </body>
+</html>
