@@ -14,6 +14,10 @@
   -webkit-text-size-adjust: 100%;
 }
 
+#root {
+  background-color: #0000;
+}
+
 body {
   font-family: system-ui;
   line-height: 1.6;
@@ -95,15 +99,15 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-body.index.login-form,
-body.signup .login-form {
+div.login.login-form,
+div.signup .login-form {
   text-align: center;
   margin: 0 auto;
   flex-direction: column;
 }
 
-body.index #initial-view,
-body.signup #initial-view {
+div.login #initial-view,
+div.signup #initial-view {
   position: relative;
   border-radius: 2px;
   border: 1px solid #c3c3c3;
@@ -111,28 +115,28 @@ body.signup #initial-view {
   margin: 0 auto;
 }
 
-body.index #initial-view {
+div.login #initial-view {
   width: 25em;
   height: 30em;
 }
-body.signup #initial-view {
+div.signup #initial-view {
   width: 50em;
   height: 35em;
 }
-body.signup .first-column,
-body.signup .second-column {
+div.signup .first-column,
+div.signup .second-column {
   display: inline-block;
   border-radius: 2px;
   border: 1px solid #c3c3c3;
   width: 40%;
 }
 
-body.index .restore-login {
+div.login .restore-login {
   font-size: 90%;
   font-weight: bold;
 }
-body.index .ask-acess,
-body.signup .login {
+div.login .ask-acess,
+div.signup .login {
   font-weight: 500;
   font-size: 90%;
   position: absolute;
@@ -141,16 +145,16 @@ body.signup .login {
   margin-left: 5%;
 }
 
-body.index .login-header,
-body.signup .signup-header {
+div.login .login-header,
+div.signup .signup-header {
   color: #002f56;
 }
 
-body.signup input {
+div.signup input {
   width: 90%;
 }
 
-body.signup #flex-container {
+div.signup #flex-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -158,7 +162,7 @@ body.signup #flex-container {
   min-height: 100vh;
 }
 
-body.homepage #flex-container {
+div.products #flex-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -167,7 +171,7 @@ body.homepage #flex-container {
   min-height: 100vh;
 }
 
-body.homepage {
+div.products {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -175,7 +179,7 @@ body.homepage {
   align-items: center;
 }
 
-body.homepage main.table {
+div.products main.table {
   width: 82vw;
   min-height: 50vh;
   max-height: 90vh;
@@ -184,13 +188,13 @@ body.homepage main.table {
   overflow: auto;
 }
 
-body.homepage .table-head {
+div.products .table-head {
   width: 100%;
   height: 10%;
   background-color: #ffffff;
 }
 
-body.homepage .table-body {
+div.products .table-body {
   width: 95%;
   max-height: calc(89% - .8rem);
 
@@ -207,70 +211,70 @@ body.homepage .table-body {
   visibility: visible;
 }
 
-body.homepage table {
+div.products table {
   width: 100%;
   margin-bottom: 2em;
 }
 
-body.homepage table, th, td {
+div.products table, th, td {
   border-collapse: separate;
   padding: 1rem;
 }
 
-body.homepage th, td {
+div.products th, td {
   padding: 0.5em;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
 
-body.homepage th {
+div.products th {
   font-weight: bold;
   text-align: center;
 }
 
 
-body.homepage thead th {
+div.products thead th {
   position: sticky;
   top: 0;
   left: 0;
   background-color: #c3c3c3;
 }
 
-body.homepage tbody tr:nth-child(even) {
-  background-color: #0000000b;
+div.products tbody tr:nth-child(even) {
+  background-color: #0000001f;
 }
 
-body.homepage .add-product {
+div.products .add-product {
   width: 82vw;
   border: 1px solid #c3c3c3;
 }
 
-body.homepage .add-product-form,
-body.homepage .search-product-form {
+div.products .add-product-form,
+div.products .search-product-form {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-body.homepage .add-form-group {
+div.products .add-form-group {
   width: 20%
 }
 
-body.homepage .search-product {
+div.products .search-product {
   width: 82vw;
 }
 
-body.homepage .search-product-form {
+div.products .search-product-form {
   flex-direction: column;
 }
 
-body.homepage .search-form-group {
+div.products .search-form-group {
   width: 50%;
 }
 
-body.homepage .search-product-button-wrapper
-body.homepage .add-product-button-wrapper {
+div.products .search-product-button-wrapper
+div.products .add-product-button-wrapper {
   margin-top: 0px;
   padding-top: .2px;
 }
