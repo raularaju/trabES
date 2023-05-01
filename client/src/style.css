@@ -14,6 +14,10 @@
   -webkit-text-size-adjust: 100%;
 }
 
+#root {
+  background-color: #0000;
+}
+
 body {
   font-family: system-ui;
   line-height: 1.6;
@@ -237,7 +241,7 @@ body.homepage thead th {
 }
 
 body.homepage tbody tr:nth-child(even) {
-  background-color: #0000000b;
+  background-color: #0000001f;
 }
 
 body.homepage .add-product {
