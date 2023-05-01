@@ -6,32 +6,65 @@ class Products extends React.Component {
     super(props);
     this.state = {
       products: [],
-      // productName: '',
-      // productBrand: '',
-      // productExpiration: '',
-      // productQuantity: ''
+      productName: '',
+      productBrand: '',
+      productExpiration: '',
+      newQuantity: ''
     };
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
     // Make API call to get products data
-    fetch("/api/products")
-      .then((response) => response.json())
-      .then((data) => {
+    fetch('/api/products')
+      .then(response => response.json())
+      .then(data => {
         // Update state with products data
         this.setState({ products: data });
       })
-      .catch((error) => {
+      .catch(error => {
         // Handle error
         console.error(error);
       });
   }
 
-  // handleChange(event) {
-  //   this.setState({ [event.target.name]: event.target.value });
-  // }
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const newProduct = {
+      name: this.state.productName,
+      brand: this.state.productBrand,
+      expiration: this.state.productExpiration,
+      quantity: this.state.productQuantity
+    };
+    // Make API call to add new product data
+    fetch('/api/products', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newProduct)
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Update state with new product data
+        this.setState(prevState => ({
+          products: [...prevState.products, data],
+          productName: '',
+          productBrand: '',
+          productExpiration: '',
+          productQuantity: ''
+        }));
+      })
+      .catch(error => {
+        // Handle error
+        console.error(error);
+      });
+  }
 
   render() {
     return (
