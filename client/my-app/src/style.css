@@ -158,16 +158,21 @@ body.signup #flex-container {
   min-height: 100vh;
 }
 
+body.homepage #flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
 body.homepage {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-body.homepage .add-product-form {
-  display: flex;
 }
 
 body.homepage main.table {
@@ -233,4 +238,39 @@ body.homepage thead th {
 
 body.homepage tbody tr:nth-child(even) {
   background-color: #0000000b;
+}
+
+body.homepage .add-product {
+  width: 82vw;
+  border: 1px solid #c3c3c3;
+}
+
+body.homepage .add-product-form,
+body.homepage .search-product-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+body.homepage .add-form-group {
+  width: 20%
+}
+
+body.homepage .search-product {
+  width: 82vw;
+}
+
+body.homepage .search-product-form {
+  flex-direction: column;
+}
+
+body.homepage .search-form-group {
+  width: 50%;
+}
+
+body.homepage .search-product-button-wrapper
+body.homepage .add-product-button-wrapper {
+  margin-top: 0px;
+  padding-top: .2px;
 }
