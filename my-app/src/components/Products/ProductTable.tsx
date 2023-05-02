@@ -20,7 +20,6 @@ const ProductTable: FC<ProductTableProps> = ({ products }) => {
           <th>Marca</th>
           <th>Validade</th>
           <th>Quantidade</th>
-          <th>id</th>
         </tr>
       </thead>
       <tbody>

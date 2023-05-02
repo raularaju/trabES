@@ -104,7 +104,7 @@ class Products extends React.Component<{}, ProductsState> {
 
   render() {
     const filteredProducts = this.state.products.filter(product => 
-      product.name.toLowerCase().includes(this.state.searchQuery.toLowerCase())
+      product.name.toLowerCase().includes(this.state.searchQuery.toLowerCase()) || product.brand.toLowerCase().includes(this.state.searchQuery.toLowerCase())
     );
     return (
       <div className="products">
