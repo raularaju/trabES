@@ -35,7 +35,6 @@ class Products extends React.Component<{}, ProductsState> {
   componentDidMount() {
     // Make API call to get products data
     /* const products = await getAllProducts() */
-
     getAllProducts()
     .then( axiosResponse => axiosResponse.data)
       .then((data: Product[]) => {
@@ -43,7 +42,7 @@ class Products extends React.Component<{}, ProductsState> {
         console.log(data)
         this.setState({ products: data });
       })
-      .catch(error => {
+      .catch((error) => {
         // Handle error
         console.error(error);
       });
@@ -60,7 +59,6 @@ class Products extends React.Component<{}, ProductsState> {
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     
     event.preventDefault();
-
     const name: string = this.state.productName
     const  brand: string = this.state.productBrand
     const  expiration: string =  this.state.productExpiration
@@ -84,7 +82,7 @@ class Products extends React.Component<{}, ProductsState> {
           loading: false
         }));
       })
-      .catch(error => {
+      .catch((error) => {
         // Handle error
         console.error("erro: ", error);
         this.setState({ loading: false });
@@ -130,8 +128,8 @@ class Products extends React.Component<{}, ProductsState> {
                     <label htmlFor="product-name-input">Nome</label>
                     <input
                       type="text"
-                      id="productName"
                       name="productName"
+                      id="productName"
                       value={this.state.productName}
                       onChange={this.handleChange}
                       required
@@ -141,18 +139,20 @@ class Products extends React.Component<{}, ProductsState> {
                     <label htmlFor="product-brand-input">Marca</label>
                     <input
                       type="text"
-                      id="productBrand"
                       name="productBrand"
+                      id="productBrand"
                       value={this.state.productBrand}
                       onChange={this.handleChange}
                     />
                   </div>
                   <div className="add-form-group">
-                    <label htmlFor="product-expiration-date-input">Validade</label>
+                    <label htmlFor="product-expiration-date-input">
+                      Validade
+                    </label>
                     <input
                       type="date"
-                      id="productExpiration"
                       name="productExpiration"
+                      id="productExpiration"
                       value={this.state.productExpiration}
                       onChange={this.handleChange}
                     />
@@ -161,8 +161,8 @@ class Products extends React.Component<{}, ProductsState> {
                     <label htmlFor="product-quantity-input">Quantidade</label>
                     <input
                       type="number"
-                      id="productQuantity"
                       name="productQuantity"
+                      id="productQuantity"
                       value={this.state.productQuantity}
                       onChange={this.handleChange}
                       required
