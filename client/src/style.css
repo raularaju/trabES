@@ -1,0 +1,280 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+#root {
+  background-color: #0000;
+}
+
+body {
+  font-family: system-ui;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+}
+
+a {
+  color: #005a9c;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #002f56;
+}
+
+header {
+  padding: 5%;
+}
+h1, h2, h3 {
+  text-align: center;
+}
+h1 {
+  font-weight: bold;
+  font-size: 2.8em;
+}
+h2 {
+  font-weight: bold;
+  font-size: 2.0em;
+}
+h3 {
+  font-weight: 600;
+  font-size: 1.8em;
+}
+
+form {
+  margin-bottom: 2em;
+}
+
+label {
+  display: block;
+  margin-top: 2em;
+}
+
+input {
+  padding: 0.5em;
+  font-size: 90%;
+  border: 2px solid #c3c3c3;
+  border-radius: 3px;
+  width: 65%;
+  box-sizing: border-box;
+  margin-bottom: 2%;
+  transition-duration: 0.25s;
+}
+input:hover {
+  background-color: #cdcaca;
+}
+input:focus {
+  background-color: #e0ecf5;
+}
+
+button[type="submit"] {
+  border-radius: 2px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #005a9c;
+  cursor: pointer;
+  color: #fff;
+  transition: border-color 0.25s;
+  margin-top: 5%;
+}
+button:hover {
+    background-color: #002f56;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+div.login.login-form,
+div.signup .login-form {
+  text-align: center;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+div.login #initial-view,
+div.signup #initial-view {
+  position: relative;
+  border-radius: 2px;
+  border: 1px solid #c3c3c3;
+  text-align: center;
+  margin: 0 auto;
+}
+
+div.login #initial-view {
+  width: 25em;
+  height: 30em;
+}
+div.signup #initial-view {
+  width: 50em;
+  height: 35em;
+}
+div.signup .first-column,
+div.signup .second-column {
+  display: inline-block;
+  border-radius: 2px;
+  border: 1px solid #c3c3c3;
+  width: 40%;
+}
+
+div.login .restore-login {
+  font-size: 90%;
+  font-weight: bold;
+}
+div.login .ask-acess,
+div.signup .login {
+  font-weight: 500;
+  font-size: 90%;
+  position: absolute;
+  bottom: 5%;
+  text-align: left;
+  margin-left: 5%;
+}
+
+div.login .login-header,
+div.signup .signup-header {
+  color: #002f56;
+}
+
+div.signup input {
+  width: 90%;
+}
+
+div.signup #flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+div.products #flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+div.products {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div.products main.table {
+  width: 82vw;
+  min-height: 50vh;
+  max-height: 90vh;
+  border-radius: 2px;
+  border: 1px solid #c3c3c3;
+  overflow: auto;
+}
+
+div.products .table-head {
+  width: 100%;
+  height: 10%;
+  background-color: #ffffff;
+}
+
+div.products .table-body {
+  width: 95%;
+  max-height: calc(89% - .8rem);
+
+  margin: .8rem auto;
+  border-radius: .6rem;
+  border: 1px solid #c3c3c3;
+}
+.table-body::-webkit-scrollbar-thumb {
+  border-radius: .6rem;
+  background-color: #0004;
+  visibility:hidden;
+}
+.table-body:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+
+div.products table {
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+div.products table, th, td {
+  border-collapse: separate;
+  padding: 1rem;
+}
+
+div.products th, td {
+  padding: 0.5em;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+div.products th {
+  font-weight: bold;
+  text-align: center;
+}
+
+
+div.products thead th {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: #c3c3c3;
+}
+
+div.products tbody tr:nth-child(even) {
+  background-color: #0000001f;
+}
+
+div.products .add-product {
+  width: 82vw;
+  border: 1px solid #c3c3c3;
+}
+
+div.products .add-product-form,
+div.products .search-product-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+div.products .add-form-group {
+  width: 20%
+}
+
+div.products .search-product {
+  width: 82vw;
+}
+
+div.products .search-product-form {
+  flex-direction: column;
+}
+
+div.products .search-form-group {
+  width: 50%;
+}
+
+div.products .search-product-button-wrapper
+div.products .add-product-button-wrapper {
+  margin-top: 0px;
+  padding-top: .2px;
+}

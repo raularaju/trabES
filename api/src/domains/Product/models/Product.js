@@ -27,13 +27,9 @@ const Product = database.define('Product', {
         allowNull: false,
         defaultValue: 0
     },
-    expiration: {
+    expirationDate: {
         type: Sequelize.DATEONLY,
         allowNull: false   
-    },
-    batch: {
-        type: Sequelize.STRING,
-        allowNull: false
     }
 
 });
