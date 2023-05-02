@@ -28,3 +28,8 @@ export const createProduct = async (name:string, brand:string, expirationDate:st
     const response = await api.post('/product/', {name, brand, expirationDate, quantity })
     return response;
 }
+
+export const updateQuantityProduct = async (id: string, quantity: number) => {
+  const response = await api.put(`/product/${id}`, {quantity })
+  return response;
+}

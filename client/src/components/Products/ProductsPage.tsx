@@ -1,8 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 import ProductTable from './ProductTable';
-import { createProduct, getAllProducts } from '../../requests/products';
+import { createProduct, getAllProducts,  updateQuantityProduct } from '../../requests/products';
+
 interface Product {
+  id: string
   name: string;
   brand: string;
   expiration: string;
@@ -101,6 +103,18 @@ class Products extends React.Component<{}, ProductsState> {
         this.setState({ loading: false });
       });
   }
+  handleQuantityUpdate = (productId: string, newQuantity: number) => {
+    const updatedProducts = this.state.products.map((product) => {
+      if (product.id === productId) {
+        return {
+          ...product,
+          quantity: newQuantity,
+        };
+      }
+      return product;
+    });
+    this.setState({products: [...updatedProducts]})
+  };
 
   render() {
     const filteredProducts = this.state.products.filter(product => 
@@ -129,7 +143,7 @@ class Products extends React.Component<{}, ProductsState> {
               <h3>Produtos</h3>
             </div>
             <div>
-              <ProductTable products={filteredProducts} />
+              <ProductTable products={filteredProducts} onQuantityUpdate={this.handleQuantityUpdate}  />
             </div>
           </main>
           <div className="add-product">
