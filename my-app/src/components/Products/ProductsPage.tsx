@@ -1,6 +1,6 @@
-import React from 'react';
-import ProductTable from './ProductTable';
-import { getAllProducts } from '../../requests/products';
+import React from "react";
+import ProductTable from "./ProductTable";
+import { getAllProducts } from "../../requests/products";
 interface Product {
   name: string;
   brand: string;
@@ -21,10 +21,10 @@ class Products extends React.Component<{}, ProductsState> {
     super(props);
     this.state = {
       products: [],
-      productName: '',
-      productBrand: '',
-      productExpiration: '',
-      productQuantity: ''
+      productName: "",
+      productBrand: "",
+      productExpiration: "",
+      productQuantity: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,21 +34,27 @@ class Products extends React.Component<{}, ProductsState> {
     // Make API call to get products data
     /* const products = await getAllProducts() */
 
-    fetch('http://localhost:3030/product/')
-      .then(response => response.json())
+    fetch("http://localhost:3030/product/")
+      .then((response) => response.json())
       .then((data: Product[]) => {
         // Update state with products data
         this.setState({ products: data });
       })
-      .catch(error => {
+      .catch((error) => {
         // Handle error
         console.error(error);
       });
   }
 
   handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    this.setState({ [event.target.name]: event.target.value });
-  }
+  const { name, value } = event.target;
+  this.setState(prevState => ({
+    ...prevState,
+    [name]: value
+  }));
+}
+
+
 
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -56,30 +62,31 @@ class Products extends React.Component<{}, ProductsState> {
       name: this.state.productName,
       brand: this.state.productBrand,
       expiration: this.state.productExpiration,
-      quantity: parseInt(this.state.productQuantity, 10)
+      quantity: parseInt(this.state.productQuantity, 10),
     };
     // Make API call to add new product data
-    fetch('http://localhost:3030/product/', {
-      method: 'POST',
+    fetch("http://localhost:3030/product/", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(newProduct)
+      body: JSON.stringify(newProduct),
     })
       .then((response) => {
-        console.log(response)
-        return response.json()})
+        console.log(response);
+        return response.json();
+      })
       .then((data: Product) => {
         // Update state with new product data
-        this.setState(prevState => ({
+        this.setState((prevState) => ({
           products: [...prevState.products, data],
-          productName: '',
-          productBrand: '',
-          productExpiration: '',
-          productQuantity: ''
+          productName: "",
+          productBrand: "",
+          productExpiration: "",
+          productQuantity: "",
         }));
       })
-      .catch(error => {
+      .catch((error) => {
         // Handle error
         console.error(error);
       });
@@ -116,24 +123,52 @@ class Products extends React.Component<{}, ProductsState> {
           </main>
           <div className="add-product">
             <h3>Adicionar produtos</h3>
-            <form className="add-form">
+            <form className="add-form" onSubmit={this.handleSubmit}>
               <div className="product-description">
                 <div className="add-product-form">
                   <div className="add-form-group">
-                    <label htmlFor="product-name-input">Name</label>
-                    <input type="text" id="productName" required />
+                    <label htmlFor="product-name-input">Nome</label>
+                    <input
+                      type="text"
+                      name="productName"
+                      id="productName"
+                      value={this.state.productName}
+                      onChange={this.handleChange}
+                      required
+                    />
                   </div>
                   <div className="add-form-group">
                     <label htmlFor="product-brand-input">Marca</label>
-                    <input type="text" id="productBrand" />
+                    <input
+                      type="text"
+                      name="productBrand"
+                      id="productBrand"
+                      value={this.state.productBrand}
+                      onChange={this.handleChange}
+                    />
                   </div>
                   <div className="add-form-group">
-                    <label htmlFor="product-expiration-date-input">Validade</label>
-                    <input type="date" id="productExpiration" />
+                    <label htmlFor="product-expiration-date-input">
+                      Validade
+                    </label>
+                    <input
+                      type="date"
+                      name="productExpiration"
+                      id="productExpiration"
+                      value={this.state.productExpiration}
+                      onChange={this.handleChange}
+                    />
                   </div>
                   <div className="add-form-group">
-                    <label htmlFor="product-quantity-input">Quantity</label>
-                    <input type="number" id="productQuantity" required />
+                    <label htmlFor="product-quantity-input">Quantidade</label>
+                    <input
+                      type="number"
+                      name="productQuantity"
+                      id="productQuantity"
+                      value={this.state.productQuantity}
+                      onChange={this.handleChange}
+                      required
+                    />
                   </div>
                 </div>
                 <div className="add-product-button-wrapper">
