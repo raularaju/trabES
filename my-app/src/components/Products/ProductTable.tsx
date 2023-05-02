@@ -29,7 +29,7 @@ const ProductTable: FC<ProductTableProps> = ({ products }) => {
           <tr key={index}>
             <td>{product.name}</td>
             <td>{product.brand}</td>
-            <td>{product.expirationDate}</td>
+            <td>{new Date(product.expirationDate).toLocaleDateString()}</td>
             <td>{product.quantity}</td>
             <td>{product.id}</td>
           </tr>

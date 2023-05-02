@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductTable from './ProductTable';
-import { getAllProducts } from '../../requests/products';
+import { createProduct, getAllProducts } from '../../requests/products';
 interface Product {
   name: string;
   brand: string;
@@ -34,10 +34,11 @@ class Products extends React.Component<{}, ProductsState> {
     // Make API call to get products data
     /* const products = await getAllProducts() */
 
-    fetch('http://localhost:3030/product/')
-      .then(response => response.json())
+    getAllProducts()
+    .then( axiosResponse => axiosResponse.data)
       .then((data: Product[]) => {
         // Update state with products data
+        console.log(data)
         this.setState({ products: data });
       })
       .catch(error => {
@@ -51,26 +52,21 @@ class Products extends React.Component<{}, ProductsState> {
   }
 
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    
     event.preventDefault();
-    const newProduct: Product = {
-      name: this.state.productName,
-      brand: this.state.productBrand,
-      expiration: this.state.productExpiration,
-      quantity: parseInt(this.state.productQuantity, 10)
-    };
+
+    const name: string = this.state.productName
+    const  brand: string = this.state.productBrand
+    const  expiration: string =  this.state.productExpiration
+    const  quantity: number = parseInt(this.state.productQuantity, 10)
+    
     // Make API call to add new product data
-    fetch('http://localhost:3030/product/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newProduct)
-    })
+    createProduct(name, brand, expiration, quantity)
       .then((response) => {
-        console.log(response)
-        return response.json()})
+        return response.data})
       .then((data: Product) => {
         // Update state with new product data
+        console.log("passou aqui: ", data)
         this.setState(prevState => ({
           products: [...prevState.products, data],
           productName: '',
@@ -81,7 +77,7 @@ class Products extends React.Component<{}, ProductsState> {
       })
       .catch(error => {
         // Handle error
-        console.error(error);
+        console.error("erro: ", error);
       });
   }
 
@@ -116,24 +112,50 @@ class Products extends React.Component<{}, ProductsState> {
           </main>
           <div className="add-product">
             <h3>Adicionar produtos</h3>
-            <form className="add-form">
+            <form onSubmit={this.handleSubmit} className="add-form">
               <div className="product-description">
                 <div className="add-product-form">
                   <div className="add-form-group">
                     <label htmlFor="product-name-input">Name</label>
-                    <input type="text" id="productName" required />
+                    <input
+                      type="text"
+                      id="productName"
+                      name="productName"
+                      value={this.state.productName}
+                      onChange={this.handleChange}
+                      required
+                    />
                   </div>
                   <div className="add-form-group">
                     <label htmlFor="product-brand-input">Marca</label>
-                    <input type="text" id="productBrand" />
+                    <input
+                      type="text"
+                      id="productBrand"
+                      name="productBrand"
+                      value={this.state.productBrand}
+                      onChange={this.handleChange}
+                    />
                   </div>
                   <div className="add-form-group">
                     <label htmlFor="product-expiration-date-input">Validade</label>
-                    <input type="date" id="productExpiration" />
+                    <input
+                      type="date"
+                      id="productExpiration"
+                      name="productExpiration"
+                      value={this.state.productExpiration}
+                      onChange={this.handleChange}
+                    />
                   </div>
                   <div className="add-form-group">
                     <label htmlFor="product-quantity-input">Quantity</label>
-                    <input type="number" id="productQuantity" required />
+                    <input
+                      type="number"
+                      id="productQuantity"
+                      name="productQuantity"
+                      value={this.state.productQuantity}
+                      onChange={this.handleChange}
+                      required
+                    />
                   </div>
                 </div>
                 <div className="add-product-button-wrapper">
@@ -146,6 +168,7 @@ class Products extends React.Component<{}, ProductsState> {
       </div>
     );
   }
+  
 }
 
 export default Products;
