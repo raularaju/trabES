@@ -50,7 +50,11 @@ class Products extends React.Component<{}, ProductsState> {
   }
 
   handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    this.setState({ [event.target.name]: event.target.value });
+    const { name, value } = event.target;
+    this.setState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   }
 
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
