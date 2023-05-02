@@ -31,4 +31,14 @@ Router.get('/', async (req, res, next) => {
         next(error);
     }
     })
+
+// Router.get('/:name', async (req, res, next) => {
+//     try {
+//         const name = req.params.name;
+//         const productsByName = await ProductService.getByName(name);
+//         res.status(httpsStatusCodes.ACCEPTED).send(productsByName);
+//     } catch (error) {
+//         next(error);
+//     }
+// })
 module.exports = Router;

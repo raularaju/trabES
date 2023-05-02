@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import ProductTable from './ProductTable';
 import { createProduct, getAllProducts } from '../../requests/products';
 interface Product {
@@ -14,7 +15,9 @@ interface ProductsState {
   productBrand: string;
   productExpiration: string;
   productQuantity: string;
+  queryResult: '',
   loading: boolean;
+  searchQuery: string;
 }
 
 class Products extends React.Component<{}, ProductsState> {
@@ -26,16 +29,18 @@ class Products extends React.Component<{}, ProductsState> {
       productBrand: '',
       productExpiration: '',
       productQuantity: '',
-      loading: false
+      queryResult: '',
+      loading: false,
+      searchQuery: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleQuery = this.handleQuery.bind(this);
   }
 
   componentDidMount() {
     // Make API call to get products data
     /* const products = await getAllProducts() */
-
     getAllProducts()
     .then( axiosResponse => axiosResponse.data)
       .then((data: Product[]) => {
@@ -43,20 +48,30 @@ class Products extends React.Component<{}, ProductsState> {
         console.log(data)
         this.setState({ products: data });
       })
-      .catch(error => {
+      .catch((error) => {
         // Handle error
         console.error(error);
       });
   }
 
+  handleQuery(event: React.ChangeEvent<HTMLInputElement>) {
+    // Handle changes to search query.
+    const { value } = event.target;
+    this.setState({ searchQuery: value });
+  } 
+
   handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    this.setState({ [event.target.name]: event.target.value });
+    // Handle changes to add products form.
+    const { name, value } = event.target;
+    this.setState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   }
 
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    
+    // Submit new product to server.
     event.preventDefault();
-
     const name: string = this.state.productName
     const  brand: string = this.state.productBrand
     const  expiration: string =  this.state.productExpiration
@@ -80,7 +95,7 @@ class Products extends React.Component<{}, ProductsState> {
           loading: false
         }));
       })
-      .catch(error => {
+      .catch((error) => {
         // Handle error
         console.error("erro: ", error);
         this.setState({ loading: false });
@@ -88,33 +103,33 @@ class Products extends React.Component<{}, ProductsState> {
   }
 
   render() {
+    const filteredProducts = this.state.products.filter(product => 
+      product.name.toLowerCase().includes(this.state.searchQuery.toLowerCase()) || product.brand.toLowerCase().includes(this.state.searchQuery.toLowerCase())
+    );
     return (
       <div className="products">
         {this.state.loading && <p>Loading...</p>}
         <div id="flex-container">
           <div className="search-product">
             <h3>Procurar produtos</h3>
-            <form className="search-form">
               <div className="search-product-form">
                 <div className="search-form-group">
                   <input
                     name="search-by-name"
                     id="search-by-name"
                     placeholder="Insira o nome do produto"
+                    value={this.state.searchQuery}
+                    onChange={this.handleQuery}
                   />
                 </div>
-                <div className="search-product-button-wrapper">
-                  <button type="submit">Procurar</button>
-                </div>
               </div>
-            </form>
           </div>
           <main className="table">
             <div className="table-header">
               <h3>Produtos</h3>
             </div>
             <div>
-              <ProductTable products={this.state.products} />
+              <ProductTable products={filteredProducts} />
             </div>
           </main>
           <div className="add-product">

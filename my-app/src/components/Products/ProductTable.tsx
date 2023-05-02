@@ -1,10 +1,9 @@
 import React, { FC } from 'react';
 
 interface Product {
-  id: string;
   name: string;
   brand: string;
-  expirationDate: string;
+  expiration: string;
   quantity: number;
 }
 
@@ -21,7 +20,6 @@ const ProductTable: FC<ProductTableProps> = ({ products }) => {
           <th>Marca</th>
           <th>Validade</th>
           <th>Quantidade</th>
-          <th>id</th>
         </tr>
       </thead>
       <tbody>
@@ -31,23 +29,8 @@ const ProductTable: FC<ProductTableProps> = ({ products }) => {
             <td>{product.brand}</td>
             <td>{new Date(product.expirationDate).toLocaleDateString()}</td>
             <td>{product.quantity}</td>
-            <td>{product.id}</td>
           </tr>
         ))}
-        <tr>
-          <td>a</td>
-          <td>b</td>
-          <td>c</td>
-          <td>d</td>
-          <td>e</td>
-        </tr>
-        <tr>
-          <td>a</td>
-          <td>b</td>
-          <td>c</td>
-          <td>d</td>
-          <td>e</td>
-        </tr>
       </tbody>
     </table>
   );
