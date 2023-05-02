@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import ProductTable from './ProductTable';
 import { createProduct, getAllProducts } from '../../requests/products';
 interface Product {
@@ -14,7 +15,9 @@ interface ProductsState {
   productBrand: string;
   productExpiration: string;
   productQuantity: string;
+  queryResult: '',
   loading: boolean;
+  searchQuery: string;
 }
 
 class Products extends React.Component<{}, ProductsState> {
@@ -26,10 +29,13 @@ class Products extends React.Component<{}, ProductsState> {
       productBrand: '',
       productExpiration: '',
       productQuantity: '',
-      loading: false
+      queryResult: '',
+      loading: false,
+      searchQuery: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleQuery = this.handleQuery.bind(this);
   }
 
   componentDidMount() {
@@ -48,7 +54,14 @@ class Products extends React.Component<{}, ProductsState> {
       });
   }
 
+  handleQuery(event: React.ChangeEvent<HTMLInputElement>) {
+    // Handle changes to search query.
+    const { value } = event.target;
+    this.setState({ searchQuery: value });
+  } 
+
   handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    // Handle changes to add products form.
     const { name, value } = event.target;
     this.setState((prevState) => ({
       ...prevState,
@@ -57,7 +70,7 @@ class Products extends React.Component<{}, ProductsState> {
   }
 
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    
+    // Submit new product to server.
     event.preventDefault();
     const name: string = this.state.productName
     const  brand: string = this.state.productBrand
@@ -90,33 +103,33 @@ class Products extends React.Component<{}, ProductsState> {
   }
 
   render() {
+    const filteredProducts = this.state.products.filter(product => 
+      product.name.toLowerCase().includes(this.state.searchQuery.toLowerCase())
+    );
     return (
       <div className="products">
         {this.state.loading && <p>Loading...</p>}
         <div id="flex-container">
           <div className="search-product">
             <h3>Procurar produtos</h3>
-            <form className="search-form">
               <div className="search-product-form">
                 <div className="search-form-group">
                   <input
                     name="search-by-name"
                     id="search-by-name"
                     placeholder="Insira o nome do produto"
+                    value={this.state.searchQuery}
+                    onChange={this.handleQuery}
                   />
                 </div>
-                <div className="search-product-button-wrapper">
-                  <button type="submit">Procurar</button>
-                </div>
               </div>
-            </form>
           </div>
           <main className="table">
             <div className="table-header">
               <h3>Produtos</h3>
             </div>
             <div>
-              <ProductTable products={this.state.products} />
+              <ProductTable products={filteredProducts} />
             </div>
           </main>
           <div className="add-product">
@@ -128,8 +141,8 @@ class Products extends React.Component<{}, ProductsState> {
                     <label htmlFor="product-name-input">Nome</label>
                     <input
                       type="text"
-                      name="productName"
                       id="productName"
+                      name="productName"
                       value={this.state.productName}
                       onChange={this.handleChange}
                       required
@@ -139,20 +152,18 @@ class Products extends React.Component<{}, ProductsState> {
                     <label htmlFor="product-brand-input">Marca</label>
                     <input
                       type="text"
-                      name="productBrand"
                       id="productBrand"
+                      name="productBrand"
                       value={this.state.productBrand}
                       onChange={this.handleChange}
                     />
                   </div>
                   <div className="add-form-group">
-                    <label htmlFor="product-expiration-date-input">
-                      Validade
-                    </label>
+                    <label htmlFor="product-expiration-date-input">Validade</label>
                     <input
                       type="date"
-                      name="productExpiration"
                       id="productExpiration"
+                      name="productExpiration"
                       value={this.state.productExpiration}
                       onChange={this.handleChange}
                     />
@@ -161,8 +172,8 @@ class Products extends React.Component<{}, ProductsState> {
                     <label htmlFor="product-quantity-input">Quantidade</label>
                     <input
                       type="number"
-                      name="productQuantity"
                       id="productQuantity"
+                      name="productQuantity"
                       value={this.state.productQuantity}
                       onChange={this.handleChange}
                       required
