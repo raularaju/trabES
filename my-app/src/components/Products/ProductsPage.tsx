@@ -123,7 +123,7 @@ class Products extends React.Component<{}, ProductsState> {
               <div className="product-description">
                 <div className="add-product-form">
                   <div className="add-form-group">
-                    <label htmlFor="product-name-input">Name</label>
+                    <label htmlFor="product-name-input">Nome</label>
                     <input
                       type="text"
                       id="productName"
@@ -154,7 +154,7 @@ class Products extends React.Component<{}, ProductsState> {
                     />
                   </div>
                   <div className="add-form-group">
-                    <label htmlFor="product-quantity-input">Quantity</label>
+                    <label htmlFor="product-quantity-input">Quantidade</label>
                     <input
                       type="number"
                       id="productQuantity"
@@ -167,7 +167,7 @@ class Products extends React.Component<{}, ProductsState> {
                 </div>
                 <div className="add-product-button-wrapper">
                    <button type="submit" disabled={this.state.loading}>
-                    {this.state.loading ? 'Loading...' : 'Submit'}
+                    {this.state.loading ? 'Carregando...' : 'Adicionar'}
                    </button>
                 </div>
               </div>
