@@ -25,6 +25,12 @@ class ProductService{
             throw new QueryError("Produto não encontrado")
         }
     }
+
+    async getByName(name) {
+        const products = await this.getall(); // assuming you have a `getall` method that returns all products
+        const productsByName = products.filter(product => product.name === name);
+        return productsByName;
+      }
 }
 
 module.exports = new ProductService;
