@@ -16,7 +16,7 @@ function LoginPage() {
     try {
       const res = await login(email, password);
       console.log(res)
-      navigate('/dashboard');
+      navigate('/products');
     } catch (error) {
       console.log(error);
       setError('Senha e/ou email incorretos');

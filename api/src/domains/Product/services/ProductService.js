@@ -4,8 +4,9 @@ const Product = require('../models/Product');
 class ProductService{
     async create(body) {
         try {
-            await Product.create(body);
+            return await Product.create(body);
         }catch(error){
+            console.log(error)
             throw new Error(error);
         }
     }

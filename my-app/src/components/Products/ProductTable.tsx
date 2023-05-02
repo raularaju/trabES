@@ -28,24 +28,10 @@ const ProductTable: FC<ProductTableProps> = ({ products }) => {
           <tr key={index}>
             <td>{product.name}</td>
             <td>{product.brand}</td>
-            <td>{product.expiration}</td>
+            <td>{new Date(product.expirationDate).toLocaleDateString()}</td>
             <td>{product.quantity}</td>
           </tr>
         ))}
-        <tr>
-          <td>a</td>
-          <td>b</td>
-          <td>c</td>
-          <td>d</td>
-          <td>e</td>
-        </tr>
-        <tr>
-          <td>a</td>
-          <td>b</td>
-          <td>c</td>
-          <td>d</td>
-          <td>e</td>
-        </tr>
       </tbody>
     </table>
   );
