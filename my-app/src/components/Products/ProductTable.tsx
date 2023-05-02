@@ -32,20 +32,6 @@ const ProductTable: FC<ProductTableProps> = ({ products }) => {
             <td>{product.quantity}</td>
           </tr>
         ))}
-        <tr>
-          <td>a</td>
-          <td>b</td>
-          <td>c</td>
-          <td>d</td>
-          <td>e</td>
-        </tr>
-        <tr>
-          <td>a</td>
-          <td>b</td>
-          <td>c</td>
-          <td>d</td>
-          <td>e</td>
-        </tr>
       </tbody>
     </table>
   );
