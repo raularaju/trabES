@@ -182,9 +182,8 @@
   div.products main.table {
     width: 82vw;
     min-height: 50vh;
-    max-height: 90vh;
-    border-radius: 2px;
-    border: 1px solid #c3c3c3;
+    max-height: 90vh;   
+    border:none;
     overflow: auto;
   }
   
@@ -246,11 +245,12 @@
   
   div.products .add-product {
     width: 82vw;
-    border: 1px solid #c3c3c3;
+    border: none;
   }
   
   div.products .add-product-form,
   div.products .search-product-form {
+    width: 200;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -271,10 +271,38 @@
   
   div.products .search-form-group {
     width: 50%;
+    
   }
   
   div.products .search-product-button-wrapper
   div.products .add-product-button-wrapper {
     margin-top: 0px;
     padding-top: .2px;
+  }
+  .search-product {
+    display: block;
+    background-color: #ffffff;
+    padding: 20px;
+    border: none;
+  }
+  .search-form{
+    background-color: #ffffff;
+    margin: 0;
+    border: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .search-product-form{
+    width: 100%;
+  }
+  .search-form-group{
+    width: 100%;
+  }
+
+  #search-by-name{
+    width: 100%;
+    margin: 0 auto;
+    height: 40px;
+    font-size: 16px;
+    text-align: center;
   }
