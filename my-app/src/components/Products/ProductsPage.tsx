@@ -14,6 +14,7 @@ interface ProductsState {
   productBrand: string;
   productExpiration: string;
   productQuantity: string;
+  loading: boolean;
 }
 
 class Products extends React.Component<{}, ProductsState> {
@@ -24,7 +25,8 @@ class Products extends React.Component<{}, ProductsState> {
       productName: '',
       productBrand: '',
       productExpiration: '',
-      productQuantity: ''
+      productQuantity: '',
+      loading: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -60,6 +62,8 @@ class Products extends React.Component<{}, ProductsState> {
     const  expiration: string =  this.state.productExpiration
     const  quantity: number = parseInt(this.state.productQuantity, 10)
     
+    this.setState({ loading: true });
+
     // Make API call to add new product data
     createProduct(name, brand, expiration, quantity)
       .then((response) => {
@@ -72,18 +76,21 @@ class Products extends React.Component<{}, ProductsState> {
           productName: '',
           productBrand: '',
           productExpiration: '',
-          productQuantity: ''
+          productQuantity: '',
+          loading: false
         }));
       })
       .catch(error => {
         // Handle error
         console.error("erro: ", error);
+        this.setState({ loading: false });
       });
   }
 
   render() {
     return (
       <div className="products">
+        {this.state.loading && <p>Loading...</p>}
         <div id="flex-container">
           <div className="search-product">
             <h3>Procurar produtos</h3>
@@ -159,7 +166,9 @@ class Products extends React.Component<{}, ProductsState> {
                   </div>
                 </div>
                 <div className="add-product-button-wrapper">
-                  <button type="submit">Adicionar</button>
+                   <button type="submit" disabled={this.state.loading}>
+                    {this.state.loading ? 'Loading...' : 'Submit'}
+                   </button>
                 </div>
               </div>
             </form>
