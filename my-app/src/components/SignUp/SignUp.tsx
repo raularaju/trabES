@@ -115,9 +115,9 @@
     
         return (
         <div>
-            <h1>Sign Up</h1>
+            <h1>Cadastro de funcionário</h1>
             <form onSubmit={this.handleSubmit} noValidate>
-            <label htmlFor="name">Name:</label>
+            <label htmlFor="name">Nome:</label>
             <input
                 type="text"
                 id="name"
@@ -136,7 +136,7 @@
                 onChange={this.handleChange}
                 required
             />    
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="password">Senha:</label>
             <input
                 type="password"
                 id="password"
@@ -146,7 +146,7 @@
                 required
             />
     
-            <label htmlFor="confirmPassword">Confirm Password:</label>
+            <label htmlFor="confirmPassword">Confirme a senha:</label>
             <input
                 type="password"
                 id="confirmPassword"
@@ -181,7 +181,7 @@
             value={cpf}
             onChange={this.handleChange}
             />
-            <label htmlFor="phoneNumber">Phone Number:</label>
+            <label htmlFor="phoneNumber">Telefone:</label>
             <InputMask
                 mask="(99) 99999-9999"
                 type="tel"
