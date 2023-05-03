@@ -205,13 +205,14 @@
                     </div>
                   </div>
                 </div>
-                <div className="form-group submit-button">
-                  <button type="submit" disabled={isLoading}>
-                    {isLoading ? "Loading..." : "Sign Up"}
-                  </button>
-                </div>
-                {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-              </form>
+                <div className="submit-container">
+                    <button type="submit" disabled={isLoading}>
+                        {isLoading ? "Loading..." : "Sign Up"}
+                    </button>
+                    {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+                    </div>
+                </form>
+              <h4>JÁ POSSUI UMA CONTA? <Link to='/signup'>ENTRE AQUI</Link></h4>
             </div>
           );
         }
