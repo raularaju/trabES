@@ -154,16 +154,16 @@
                     </div>
                   </div>
                   <div className="form-column">
-                    <div className="form-group">
-                      <label htmlFor="confirmPassword">Confirme a senha:</label>
-                      <input
-                        type="password"
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        value={confirmPassword}
+                  <div className="form-group">
+                        <label htmlFor="phoneNumber">Telefone:</label>
+                        <InputMask
+                        mask="(99) 99999-9999"
+                        type="tel"
+                        name="phoneNumber"
+                        id="phoneNumber"
+                        value={phoneNumber}
                         onChange={this.handleChange}
-                        required
-                      />
+                        />
                     </div>
                     <div className="form-group">
                       <label htmlFor="cpf">CPF:</label>
@@ -193,15 +193,15 @@
                       />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="phoneNumber">Telefone:</label>
-                      <InputMask
-                        mask="(99) 99999-9999"
-                        type="tel"
-                        name="phoneNumber"
-                        id="phoneNumber"
-                        value={phoneNumber}
+                        <label htmlFor="confirmPassword">Confirme a senha:</label>
+                        <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        value={confirmPassword}
                         onChange={this.handleChange}
-                      />
+                        required
+                        />
                     </div>
                   </div>
                 </div>
@@ -212,7 +212,7 @@
                     {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
                     </div>
                 </form>
-              <h4>JÁ POSSUI UMA CONTA? <Link to='/signup'>ENTRE AQUI</Link></h4>
+              <h4>JÁ POSSUI UMA CONTA? <Link to='/'>ENTRE AQUI</Link></h4>
             </div>
           );
         }
