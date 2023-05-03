@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { login } from '../../requests/user';
 import './LoginPage.css'
 function LoginPage() {
@@ -50,10 +50,13 @@ function LoginPage() {
         {loading ? ( // show the loading screen if loading is true
           <div>Loading...</div>
         ) : (
-          <button type="submit">Login</button>
+          <>
+            <button type="submit">Login</button>
+          </>
         )}
         {error && <div className="error">{error}</div>}
       </form>
+      <h4>NÃO POSSUI UMA CONTA? <Link to='/signup'>CRIE AQUI</Link></h4>
     </div>
   );
 }
