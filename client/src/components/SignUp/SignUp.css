@@ -1,3 +1,30 @@
+.input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.column {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.submit-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.form-column {
+  width: 45%;
+  display: inline-block;
+  margin-right: 5%;
+}
+
 .errorMessage {
     color: red;
   }

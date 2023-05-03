@@ -7,7 +7,7 @@
     import isValidCPF from '../../../utils/isValidCPF'
 
     import InputMask from "react-input-mask";
-/*     import './SignUp.css' */
+    import './SignUp.css'
     interface Props {}
     interface State {
     name: string;
@@ -114,92 +114,108 @@
         } = this.state;
     
         return (
-        <div>
-            <h1>Cadastro de funcionário</h1>
-            <form onSubmit={this.handleSubmit} noValidate>
-            <label htmlFor="name">Nome:</label>
-            <input
-                type="text"
-                id="name"
-                name="name"
-                value={name}
-                onChange={this.handleChange}
-                required
-            />
-    
-            <label htmlFor="email">Email:</label>
-            <input
-                type="email"
-                id="email"
-                name="email"
-                value={email}
-                onChange={this.handleChange}
-                required
-            />    
-            <label htmlFor="password">Senha:</label>
-            <input
-                type="password"
-                id="password"
-                name="password"
-                value={password}
-                onChange={this.handleChange}
-                required
-            />
-    
-            <label htmlFor="confirmPassword">Confirme a senha:</label>
-            <input
-                type="password"
-                id="confirmPassword"
-                name="confirmPassword"
-                value={confirmPassword}
-                onChange={this.handleChange}
-                required
-            />
-    
-            <label htmlFor="cpf">CPF:</label>
-            <TextMask
-            mask={[
-              /\d/,
-              /\d/,
-              /\d/,
-              '.',
-              /\d/,
-              /\d/,
-              /\d/,
-              '.',
-              /\d/,
-              /\d/,
-              /\d/,
-              '-',
-              /\d/,
-              /\d/
-            ]}
-            placeholder="___.___.___-__"
-            id="cpf"
-            type="text"
-            name="cpf"
-            value={cpf}
-            onChange={this.handleChange}
-            />
-            <label htmlFor="phoneNumber">Telefone:</label>
-            <InputMask
-                mask="(99) 99999-9999"
-                type="tel"
-                name="phoneNumber"
-                id="phoneNumber"
-                value={phoneNumber}
-                onChange={this.handleChange}
-            />
-            <button type="submit" disabled={isLoading}>
-                {isLoading ? "Loading..." : "Sign Up"}
-            </button>
-            {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-            </form>
-            <h4>JÁ TEM UMA CONTA? <Link to='/'>FAÇA LOGIN</Link></h4>
-        </div>
-        
-        );
-    }
+            <div>
+              <h1>Cadastro de funcionário</h1>
+              <form onSubmit={this.handleSubmit} noValidate>
+                <div className="form-row">
+                  <div className="form-column">
+                    <div className="form-group">
+                      <label htmlFor="name">Nome:</label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={name}
+                        onChange={this.handleChange}
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="email">Email:</label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={email}
+                        onChange={this.handleChange}
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="password">Senha:</label>
+                      <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        value={password}
+                        onChange={this.handleChange}
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="form-column">
+                    <div className="form-group">
+                      <label htmlFor="confirmPassword">Confirme a senha:</label>
+                      <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        value={confirmPassword}
+                        onChange={this.handleChange}
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="cpf">CPF:</label>
+                      <TextMask
+                        mask={[
+                          /\d/,
+                          /\d/,
+                          /\d/,
+                          '.',
+                          /\d/,
+                          /\d/,
+                          /\d/,
+                          '.',
+                          /\d/,
+                          /\d/,
+                          /\d/,
+                          '-',
+                          /\d/,
+                          /\d/
+                        ]}
+                        placeholder="___.___.___-__"
+                        id="cpf"
+                        type="text"
+                        name="cpf"
+                        value={cpf}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="phoneNumber">Telefone:</label>
+                      <InputMask
+                        mask="(99) 99999-9999"
+                        type="tel"
+                        name="phoneNumber"
+                        id="phoneNumber"
+                        value={phoneNumber}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="submit-container">
+                    <button type="submit" disabled={isLoading}>
+                        {isLoading ? "Loading..." : "Sign Up"}
+                    </button>
+                    {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+                    </div>
+                </form>
+              <h4>JÁ POSSUI UMA CONTA? <Link to='/signup'>ENTRE AQUI</Link></h4>
+            </div>
+          );
+        }
     
     }
 
